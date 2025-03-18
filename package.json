@@ -15,6 +15,7 @@
   "dependencies": {
     "@nuxt/eslint": "1.2.0",
     "@nuxt/icon": "1.10.3",
+    "@nuxtjs/color-mode": "3.5.2",
     "@tailwindcss/vite": "^4.0.14",
     "eslint": "^9.0.0",
     "nuxt": "^3.16.0",
