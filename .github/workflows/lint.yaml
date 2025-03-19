@@ -10,6 +10,10 @@ jobs:
 
     runs-on: ubuntu-latest
     environment: Build
+    env:
+      NODE_ENV: development
+      TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+      TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - name: Install pnpm
@@ -21,8 +25,4 @@ jobs:
         with:
           node-version: 22.x
       - run: pnpm install
-        env:
-          - NODE_ENV: development
-          - TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
-          - TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
       - run: pnpm lint
