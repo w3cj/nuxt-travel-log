@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@vee-validate/nuxt",
     "nuxt-maplibre",
+    "nuxt-csurf",
   ],
   css: ["~/assets/css/main.css"],
   eslint: {

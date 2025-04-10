@@ -8,6 +8,7 @@ import type { NominatimResult } from "~/lib/types";
 import { CENTER_USA } from "~/lib/constants";
 import { InsertLocation } from "~/lib/db/schema";
 
+const { $csrfFetch } = useNuxtApp();
 const router = useRouter();
 const mapStore = useMapStore();
 const loading = ref(false);
@@ -27,7 +28,7 @@ const onSubmit = handleSubmit(async (values) => {
   try {
     submitError.value = "";
     loading.value = true;
-    await $fetch("/api/locations", {
+    await $csrfFetch("/api/locations", {
       method: "post",
       body: values,
     });
