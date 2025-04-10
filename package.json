@@ -11,6 +11,7 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "typecheck": "nuxi typecheck",
     "prepare": "husky"
   },
   "dependencies": {
@@ -48,7 +49,8 @@
     "drizzle-kit": "^0.30.5",
     "eslint-plugin-format": "^1.0.1",
     "husky": "^9.1.7",
-    "lint-staged": "^15.5.0"
+    "lint-staged": "^15.5.0",
+    "vue-tsc": "^2.2.8"
   },
   "lint-staged": {
     "*": "pnpm lint"
