@@ -1,16 +1,13 @@
 <script lang="ts" setup>
-const route = useRoute();
-const mapStore = useMapStore();
+const locationStore = useLocationStore();
+const {
+  currentLocation: location,
+  currentLocationError: error,
+  currentLocationStatus: status,
+} = storeToRefs(locationStore);
 
-const { slug } = route.params;
-const { data: location, status, error } = await useFetch(`/api/locations/${slug}`, {
-  lazy: true,
-});
-
-effect(() => {
-  if (location.value) {
-    mapStore.mapPoints = [location.value];
-  }
+onMounted(() => {
+  locationStore.refreshCurrentLocation();
 });
 </script>
 
