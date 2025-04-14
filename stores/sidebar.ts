@@ -8,7 +8,7 @@ export type SidebarItem = {
   icon: string;
   href?: string;
   to?: RouteLocationRaw;
-  location?: MapPoint | null;
+  mapPoint?: MapPoint | null;
 };
 
 export const useSidebarStore = defineStore("useSidebarStore", () => {
