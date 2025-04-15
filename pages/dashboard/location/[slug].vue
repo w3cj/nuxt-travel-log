@@ -13,7 +13,8 @@ const isOpen = ref(false);
 const deleteError = ref("");
 const isDeleting = ref(false);
 
-const loading = computed(() => isDeleting.value || status.value === "pending");
+const loading = computed(() => status.value === "pending" || isDeleting.value);
+const errorMessage = computed(() => error.value?.statusMessage || deleteError.value);
 
 onMounted(() => {
   locationStore.refreshCurrentLocation();
@@ -32,7 +33,6 @@ async function confirmDelete() {
     await $fetch(`/api/locations/${route.params.slug}`, {
       method: "DELETE",
     });
-
     navigateTo("/dashboard");
   }
   catch (e) {
@@ -54,9 +54,9 @@ onBeforeRouteUpdate((to) => {
     <div v-if="loading">
       <div class="loading" />
     </div>
-    <div v-if="(error || deleteError) && !loading" class="alert alert-error">
+    <div v-if="errorMessage && !loading" class="alert alert-error">
       <h2 class="text-lg">
-        {{ error?.statusMessage || deleteError }}
+        {{ errorMessage }}
       </h2>
     </div>
     <div v-if="route.name === 'dashboard-location-slug' && location && !loading">
