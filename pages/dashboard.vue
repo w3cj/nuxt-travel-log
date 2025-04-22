@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { CURRENT_LOCATION_PAGES, EDIT_PAGES, LOCATION_PAGES } from "~/lib/constants";
+import { CURRENT_LOCATION_LOG_PAGES, CURRENT_LOCATION_PAGES, EDIT_PAGES, LOCATION_PAGES } from "~/lib/constants";
 
 const isSidebarOpen = ref(true);
 const route = useRoute();
@@ -13,8 +13,12 @@ if (LOCATION_PAGES.has(route.name?.toString() || "")) {
   await locationsStore.refreshLocations();
 }
 
-if (CURRENT_LOCATION_PAGES.has(route.name?.toString() || "")) {
+if (CURRENT_LOCATION_PAGES.has(route.name?.toString() || "") || CURRENT_LOCATION_LOG_PAGES.has(route.name?.toString() || "")) {
   await locationsStore.refreshCurrentLocation();
+}
+
+if (CURRENT_LOCATION_LOG_PAGES.has(route.name?.toString() || "")) {
+  await locationsStore.refreshCurrentLocationLog();
 }
 
 onMounted(() => {
@@ -75,6 +79,21 @@ effect(() => {
         },
         icon: "tabler:circle-plus-filled",
       });
+    }
+  }
+  else if (CURRENT_LOCATION_LOG_PAGES.has(route.name?.toString() || "")) {
+    if (currentLocation.value && currentLocationStatus.value !== "pending") {
+      sidebarStore.sidebarTopItems = [{
+        id: "link-location",
+        label: `Back to "${currentLocation.value.name}"`,
+        to: {
+          name: "dashboard-location-slug",
+          params: {
+            slug: route.params.slug,
+          },
+        },
+        icon: "tabler:arrow-left",
+      }];
     }
   }
 });
