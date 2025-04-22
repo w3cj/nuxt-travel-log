@@ -5,6 +5,18 @@
     dark --prefersdark;
 }
 
+.page-content-top {
+  @apply p-4 min-h-72;
+}
+
+.card-list {
+  @apply flex flex-nowrap mt-4 gap-2 overflow-auto;
+}
+
+.card-list-item {
+  @apply bg-base-300 h-40 border-2 w-72 mb-2 shrink-0 hover:cursor-pointer;
+}
+
 .maplibregl-popup-close-button {
   @apply px-2;
 }

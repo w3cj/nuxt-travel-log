@@ -9,18 +9,18 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="p-4 min-h-64">
+  <div class="page-content-top">
     <h2 class="text-2xl">
       Locations
     </h2>
     <div v-if="status === 'pending'">
       <span class="loading loading-spinner loading-xl" />
     </div>
-    <div v-else-if="locations && locations.length > 0" class="flex flex-nowrap mt-4 gap-2 overflow-auto">
+    <div v-else-if="locations && locations.length > 0" class="card-list">
       <NuxtLink
         v-for="location in locations"
         :key="location.id"
-        class="card card-compact bg-base-300 h-40 border-2 w-72 mb-2 shrink-0 hover:cursor-pointer"
+        class="card card-compact card-list-item"
         :to="{ name: 'dashboard-location-slug', params: { slug: location.slug } }"
         :class="{
           'border-accent': isPointSelected(location, mapStore.selectedPoint),

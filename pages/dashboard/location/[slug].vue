@@ -50,7 +50,7 @@ onBeforeRouteUpdate((to) => {
 </script>
 
 <template>
-  <div class="p-4 min-h-64">
+  <div class="page-content-top">
     <div v-if="loading">
       <div class="loading" />
     </div>
@@ -108,6 +108,25 @@ onBeforeRouteUpdate((to) => {
           Add Location Log
           <Icon name="tabler:map-pin-plus" size="24" />
         </NuxtLink>
+      </div>
+      <div v-if="location.locationLogs.length" class="card-list">
+        <div
+          v-for="log in location.locationLogs"
+          :key="log.id"
+          class="card card-compact card-list-item border-transparent"
+        >
+          <div class="card-body">
+            <p class="text-xs italic text-gray-500">
+              {{ formatDate(log.startedAt) }} / {{ formatDate(log.endedAt) }}
+            </p>
+            <h3 class="text-xl">
+              {{ log.name }}
+            </h3>
+            <p class="truncate">
+              {{ log.description }}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
     <div v-if="route.name !== 'dashboard-location-slug'">
