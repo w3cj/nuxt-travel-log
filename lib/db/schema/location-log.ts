@@ -3,8 +3,7 @@ import { int, real, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-import { DescriptionSchema, LatSchema, LongSchema, NameSchema } from "~/lib/zod-schemas";
-
+import { DescriptionSchema, LatSchema, LongSchema, NameSchema } from "../../zod-schemas";
 import { user } from "./auth";
 import { location } from "./location";
 
