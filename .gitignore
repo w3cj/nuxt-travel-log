@@ -24,3 +24,5 @@ logs
 !.env.example
 
 local.db*
+
+docker-data
