@@ -54,7 +54,9 @@ function formatNumber(value?: number) {
 }
 
 function searchResultSelected(result: NominatimResult) {
-  setFieldValue("name", result.display_name);
+  if (!controlledValues.value.name) {
+    setFieldValue("name", result.display_name);
+  }
   mapStore.addedPoint = {
     id: 1,
     name: "Added Point",
@@ -62,6 +64,7 @@ function searchResultSelected(result: NominatimResult) {
     long: Number(result.lon),
     lat: Number(result.lat),
     centerMap: true,
+    zoom: 11,
   };
 }
 

@@ -5,7 +5,7 @@ import { z } from "zod";
 
 import type { SelectLocationLogImage } from "./location-log-image";
 
-import { DescriptionSchema, LatSchema, LongSchema, NameSchema } from "../../zod-schemas";
+import { DateSchema, DescriptionSchema, LatSchema, LongSchema, NameSchema } from "../../zod-schemas";
 import { user } from "./auth";
 import { location } from "./location";
 import { locationLogImage } from "./location-log-image";
@@ -37,6 +37,8 @@ export const InsertLocationLog = createInsertSchema(locationLog, {
   description: DescriptionSchema,
   lat: LatSchema,
   long: LongSchema,
+  startedAt: DateSchema,
+  endedAt: DateSchema,
 }).omit({
   id: true,
   userId: true,
