@@ -4,6 +4,12 @@ A full stack application built with Nuxt that allows users to keep track of all 
 
 ## Setup
 
+Create a `.env` file and update with your values:
+
+```sh
+cp .env.example .env
+```
+
 Make sure to install dependencies:
 
 ```bash
