@@ -26,3 +26,5 @@ logs
 local.db*
 
 docker-data
+# Sentry Config File
+.env.sentry-build-plugin
