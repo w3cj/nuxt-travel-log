@@ -37,6 +37,7 @@
     "nanoid": "^5.1.5",
     "nuxt": "^3.16.0",
     "nuxt-csurf": "1.6.5",
+    "nuxt-easy-lightbox": "1.0.2",
     "nuxt-maplibre": "^1.1.1",
     "pinia": "^3.0.1",
     "slug": "^10.0.0",
@@ -60,7 +61,11 @@
   "pnpm": {
     "overrides": {
       "@vercel/nft": "^0.27.4"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "@sentry/cli",
+      "vue-demi"
+    ]
   },
   "lint-staged": {
     "*": "pnpm lint"
