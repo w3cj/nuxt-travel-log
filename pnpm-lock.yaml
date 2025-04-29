@@ -77,6 +77,9 @@ importers:
       nuxt-csurf:
         specifier: 1.6.5
         version: 1.6.5(magicast@0.3.5)
+      nuxt-easy-lightbox:
+        specifier: 1.0.2
+        version: 1.0.2(magicast@0.3.5)(vue@3.5.13(typescript@5.8.2))
       nuxt-maplibre:
         specifier: ^1.1.1
         version: 1.1.1(vue@3.5.13(typescript@5.8.2))
@@ -4710,6 +4713,9 @@ packages:
   nuxt-csurf@1.6.5:
     resolution: {integrity: sha512-/DMNTON8LIVhntamKbBmAuM879B0QnuSJa7ZAkmkZe+21m+1QGcjVUxtSkizaM48NUvkuAGYOG0ncn+kqEgrzw==}
 
+  nuxt-easy-lightbox@1.0.2:
+    resolution: {integrity: sha512-zx71H6RpHHhUux/h596u6d/vMhqlN/IwqNBMuU5lY28lfuqhKRcv/AeWzE6pPz65qhJ3Dv4Bo1LQmAJfQIzHPg==}
+
   nuxt-maplibre@1.1.1:
     resolution: {integrity: sha512-Nc6bDM6+o6vyfZt2eOc2NNL7rdvcZwnlfKDkGXUwRNrUnEAgd2DMYSjdYcYINDH39flPKubig0jYU42g10oLnw==}
 
@@ -5981,6 +5987,12 @@ packages:
 
   vue-devtools-stub@0.1.0:
     resolution: {integrity: sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==}
+
+  vue-easy-lightbox@1.19.0:
+    resolution: {integrity: sha512-YxLXgjEn91UF3DuK1y8u3Pyx2sJ7a/MnBpkyrBSQkvU1glzEJASyAZ7N+5yDpmxBQDVMwCsL2VmxWGIiFrWCgA==}
+    engines: {node: '>=14.18.3'}
+    peerDependencies:
+      vue: ^3.0.0
 
   vue-eslint-parser@10.1.1:
     resolution: {integrity: sha512-bh2Z/Au5slro9QJ3neFYLanZtb1jH+W2bKqGHXAoYD4vZgNG3KeotL7JpPv5xzY4UXUXJl7TrIsnzECH63kd3Q==}
@@ -11727,6 +11739,14 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
+  nuxt-easy-lightbox@1.0.2(magicast@0.3.5)(vue@3.5.13(typescript@5.8.2)):
+    dependencies:
+      '@nuxt/kit': 3.16.0(magicast@0.3.5)
+      vue-easy-lightbox: 1.19.0(vue@3.5.13(typescript@5.8.2))
+    transitivePeerDependencies:
+      - magicast
+      - vue
+
   nuxt-maplibre@1.1.1(vue@3.5.13(typescript@5.8.2)):
     dependencies:
       '@indoorequal/vue-maplibre-gl': 8.3.0(maplibre-gl@5.3.0)(vue@3.5.13(typescript@5.8.2))
@@ -13090,6 +13110,10 @@ snapshots:
       ufo: 1.5.4
 
   vue-devtools-stub@0.1.0: {}
+
+  vue-easy-lightbox@1.19.0(vue@3.5.13(typescript@5.8.2)):
+    dependencies:
+      vue: 3.5.13(typescript@5.8.2)
 
   vue-eslint-parser@10.1.1(eslint@9.22.0(jiti@2.4.2)):
     dependencies:
